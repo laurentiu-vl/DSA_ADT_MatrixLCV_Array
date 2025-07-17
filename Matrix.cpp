@@ -21,6 +21,13 @@ int Matrix::nrColumns() const {
 }
 
 TElem Matrix::element(int i, int j) const {
+    if (i < 0 || j < 0 || i >= nrOfRows || j >= nrOfCols) {
+        throw runtime_error("Wrong input");
+    }
+    if (nrOfRows <= 0 || nrOfCols <= 0) {
+        throw runtime_error("Wrong input");
+    }
+
     for (int index = 0; index <= nrOfCols - 1; index++) {
         if (valueRow[index] == i && valueCol[index] == j) {
             return elem[index];
