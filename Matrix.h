@@ -7,7 +7,18 @@ typedef int TElem;
 class Matrix {
 
 private:
-    //TODO - Representation
+    ////TODO - Representation
+    //// 1. ADT Matrix – repräsentiert als schwachbesetzte Matrix (sparse), indem man ein
+    ////dynamisches Array von Tupeln der Form(Zeile, Spalte, Wert)(Wert ≠0) benutzt,
+    ////wobei die Tupel in lexikographischen Reihenfolge nach(Zeile, Spalte) gespeichert werden.
+
+    int nrOfRows;
+    int nrOfCols;
+
+    int* valueRow;
+    int* valueCol;
+    TElem* elem;
+
 public:
     //constructor
     Matrix(int nrLines, int nrCols);

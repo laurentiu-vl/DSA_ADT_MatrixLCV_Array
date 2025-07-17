@@ -1,24 +1,31 @@
 #include "Matrix.h"
 #include <exception>
+#include <stdexcept>
 using namespace std;
 
 Matrix::Matrix(int nrLines, int nrCols) {
+    if (nrLines <= 0 || nrCols <= 0) {
+        throw runtime_error("Wrong input");
+    }
 
-    //TODO - Implementation
+    nrOfRows = nrLines;
+    nrOfCols = nrCols;
 }
 
 int Matrix::nrLines() const {
-    //TODO - Implementation
-    return 0;
+    return nrOfRows;
 }
 
 int Matrix::nrColumns() const {
-    //TODO - Implementation
-    return 0;
+    return nrOfCols;
 }
 
 TElem Matrix::element(int i, int j) const {
-    //TODO - Implementation
+    for (int index = 0; index <= nrOfCols - 1; index++) {
+        if (valueRow[index] == i && valueCol[index] == j) {
+            return elem[index];
+        }
+    }
     return NULL_TELEM;
 }
 
@@ -28,5 +35,7 @@ TElem Matrix::modify(int i, int j, TElem e) {
 }
 
 Matrix::~Matrix() {
-    //TODO - Implementation
+    delete[] valueRow;
+    delete[] valueCol;
+    delete[] elem;
 }
